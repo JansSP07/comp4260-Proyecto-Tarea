@@ -38,7 +38,9 @@ https://gestiontareas.azurewebsites.net/
 
 📁 Capturas del Portal de Azure
 
-
+DB-Gestion-de-Tareas
+AppService
+StorageAccount
   
 📘 Lecciones Aprendidas
 
