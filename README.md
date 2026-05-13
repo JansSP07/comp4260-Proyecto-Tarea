@@ -17,6 +17,7 @@ Ayuda a combatir la falta de organización y el olvido de responsabilidades. Al 
 2. Azure Sql Database-Almacenar los datos del sistema
 3. Azure Storage Account-Guardar archivos cargados por usuarios
 4. Github-Documentacion y Instrucciones del Proyecto
+5. Flask-Puente entre el usuario y la base de datos en la nube.
 
 🧱 Diagrama de Arquitectura
 
@@ -24,6 +25,19 @@ Ayuda a combatir la falta de organización y el olvido de responsabilidades. Al 
 
 ⚙️ Despliegue y Configuración
 
+Para ejecutar la aplicación en tu entorno de desarrollo antes del despliegue, sigue estos pasos:
+
+Instalación de dependencias: Debes instalar Flask y PyODBC utilizando un gestor de paquetes, asegurándote de tener instalado el ODBC Driver 18 for SQL Server en tu sistema operativo.
+
+Configuración de variables de entorno: Define localmente las variables SQL_SERVER, SQL_DATABASE, SQL_USERNAME y SQL_PASSWORD para que la aplicación pueda autenticarse sin exponer credenciales en el código.
+
+Ejecución y prueba: Inicia el servidor mediante el comando python app.py, lo cual activará el modo de depuración y creará automáticamente la tabla tasks si no existe en la base de datos vinculada.
+
+Se creó un recurso de Azure SQL Database donde se habilitó el firewall para permitir el acceso desde servicios de Azure y se definió el esquema inicial mediante el script de Python.
+
+Se desplegó la aplicación Flask en un App Service, configurando el entorno de ejecución necesario para procesar las solicitudes HTTP y gestionar las rutas de la aplicación.
+
+En la sección de "Configuration" del App Service, se registraron las claves SQL_SERVER, SQL_DATABASE, SQL_USERNAME y SQL_PASSWORD, permitiendo que el contenedor acceda a la base de datos de forma segura.
 
 💻 Enlace a la Aplicación Desplegada
 
@@ -49,3 +63,5 @@ StorageAccount
 Al hacer el proyecto me enfrente a muchos obstaculos que fueron resuelto rapido, pero el problema mayor fue correr el programa, ya que Azure dice que corre y funciona pero no pasaba nada.  El problema no esta resuelto ya que el problema es la misma applicacion.  Trabajar con servicios cloud  me enseñó la importancia del desacoplamiento, permitiendo que la lógica en Python y la base de datos escalen de forma independiente dentro del ecosistema de Azure. Lo que mejoraria seria integrar un ORM como SQLAlchemy para optimizar la manipulación de datos y mejorar la portabilidad del código entre diferentes entornos.
 
 📚 Repositorio del Código
+
+https://github.com/JansSP07/comp4260-Proyecto-Tarea
